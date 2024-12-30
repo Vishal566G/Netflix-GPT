@@ -27,6 +27,11 @@
 - Update the store with trailer video data
 - Embedded the Youtube video and make it autoplay and mute
 - Build SecondaryContainer
+- Build Movie List
+- Build Movie Card
+- Added TMDB Image CDN URL
+- usePopularMovies custom hook
+- GPT Search feature
 
 ...
 
