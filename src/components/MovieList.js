@@ -1,11 +1,8 @@
 import React from "react";
 import MovieCard from "./MovieCard";
+import MovieCardShimmer from "../shimmer/MovieCardShimmer";
 
 const MovieList = ({ title, movies }) => {
-  const handleMovieCardClick = (movieID) => {
-    console.log("This is movieID:" + movieID);
-  };
-
   return (
     <div className="px-6 text-white">
       <h1 className="text-3xl py-2">{title}</h1>
@@ -13,14 +10,11 @@ const MovieList = ({ title, movies }) => {
         {Array.isArray(movies) && movies.length > 0 ? (
           movies.map((movie, index) => (
             <div key={movie.id} className="mr-4">
-              <MovieCard
-                posterPath={movie.poster_path}
-                onClick={() => handleMovieCardClick(movie.id)}
-              />
+              <MovieCard id={movie.id} posterPath={movie.poster_path} />
             </div>
           ))
         ) : (
-          <p>No movies available.</p>
+          <MovieCardShimmer />
         )}
       </div>
     </div>
