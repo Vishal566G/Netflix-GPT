@@ -15,7 +15,7 @@ const MovieInfo = () => {
     <div className="fixed z-50 mt-[2%] ml-[10%] bg-black text-white h-full overflow-y-auto w-[80%] rounded bg-opacity-90 scrollbar scrollbar-thumb-gray-700 scrollbar-track-gray-900">
       <div className="flex justify-between pt-2 px-2">
         <h1 className="text-5xl font-bold p-4">{movieInfo.title}</h1>
-        <div className="cursor-pointer" onClick={handleRemoveInfoClick}>
+        <div className="cursor-pointer w-6" onClick={handleRemoveInfoClick}>
           <Xmark />
         </div>
       </div>
