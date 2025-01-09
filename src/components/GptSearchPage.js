@@ -9,14 +9,20 @@ const GptSearchPage = () => {
   const movieInfo = useSelector((store) => store.movies.movieInfo);
 
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img src={LOGIN_BACKGROUND} alt="background_image" />
+        <img
+          className="h-screen w-screen object-cover"
+          src={LOGIN_BACKGROUND}
+          alt="background_image"
+        />
       </div>
-      {movieInfo && <MovieInfo />}
-      <GptSearchBar />
-      <GptMovieSuggestions />
-    </div>
+      <div className="">
+        {movieInfo && <MovieInfo />}
+        <GptSearchBar />
+        <GptMovieSuggestions />
+      </div>
+    </>
   );
 };
 

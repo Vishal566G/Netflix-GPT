@@ -49,10 +49,13 @@ const GptSearchBar = () => {
       }
 
       console.log(chatCompletion.choices?.[0]?.message?.content);
-      const gptMovies = chatCompletion.choices?.[0]?.message?.content.split(",");
+      const gptMovies =
+        chatCompletion.choices?.[0]?.message?.content.split(",");
 
       // Fetch TMDB results for each movie in parallel
-      const promiseArray = gptMovies.map((movie) => searchmoveTMDB(movie.trim()));
+      const promiseArray = gptMovies.map((movie) =>
+        searchmoveTMDB(movie.trim())
+      );
 
       const tmdbResults = await Promise.all(promiseArray);
 
@@ -64,24 +67,27 @@ const GptSearchBar = () => {
       );
     } catch (error) {
       console.error("Error during GPT or TMDB API call:", error);
-      alert("An error occurred while fetching movie recommendations. Please try again later.");
+      alert(
+        "An error occurred while fetching movie recommendations. Please try again later."
+      );
     }
   };
+  // 
 
   return (
-    <div className="pt-[8%] flex justify-center">
+    <div className="pt-[40%] md:pt-[8%] flex justify-center text-sm md:text-base">
       <form
-        className="w-1/2 bg-black grid grid-cols-12"
+        className="w-full md:w-1/2 bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
           type="text"
-          className="p-4 m-4 col-span-9"
+          className="py-4 px-1 m-2 md:p-4 md:m-4 col-span-8 md:col-span-9"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
-          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className="col-span-4 md:col-span-3 py-4 px-1 m-2 md:m-4 md:py-2 md:px-4 bg-red-700 text-white rounded-lg"
           onClick={handleGptSearchClick}
         >
           {lang[langKey].search}

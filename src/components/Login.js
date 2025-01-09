@@ -77,12 +77,16 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   };
   return (
-    <div className="">
+    <div className="w-screen h-screen">
       <Header />
-      <div className="absolute">
-        <img src={LOGIN_BACKGROUND} alt="background_image" />
+      <div className="absolute w-screen h-screen">
+        <img
+          className="h-screen w-screen object-cover"
+          src={LOGIN_BACKGROUND}
+          alt="background_image"
+        />
       </div>
-      <div className="absolute bg-black w-3/12 mt-36 left-0 right-0 mx-auto text-white bg-opacity-80">
+      <div className="absolute bg-black w-[80%] md:w-3/12 mt-36 left-0 right-0 mx-auto text-white bg-opacity-80 rounded-lg">
         <form onSubmit={(e) => e.preventDefault()} className="flex flex-col">
           <h1 className="text-3xl font-bold my-8 mx-6">
             {isSignInForm ? "Sign In" : "Sign Up"}
@@ -112,7 +116,7 @@ const Login = () => {
           </div>
 
           <button
-            className="bg-[#e50914] my-10 mx-5 py-3 px-2 rounded"
+            className="bg-[#e50914] mt-20 md:mt-10 mx-5 py-3 px-2 rounded"
             onClick={handleButtonClick}
           >
             {isSignInForm ? "Sign In" : "Sign Up"}
