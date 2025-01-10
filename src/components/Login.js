@@ -10,10 +10,14 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+// import { ReactComponent as EyeShow } from "../utils/showEye.svg";
+import Show from "../utils/showEye.svg";
+import Hide from "../utils/hideEye.svg";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -76,6 +80,11 @@ const Login = () => {
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
   };
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
   return (
     <div className="w-screen h-screen">
       <Header />
@@ -105,12 +114,22 @@ const Login = () => {
             placeholder="Email Address"
             className="my-2 mx-5 py-3 px-2 rounded bg-[#11100f] text-[#8daeb8]"
           />
-          <input
-            ref={password}
-            type="password"
-            placeholder="Password"
-            className="my-2 mx-5 py-3 px-2 rounded bg-[#11100f] text-[#8daeb8]"
-          />
+          <div className="my-2 mx-5 py-3 px-2 rounded bg-[#11100f] text-[#8daeb8] flex justify-between">
+            <input
+              ref={password}
+              type={isPasswordVisible ? "text" : "password"}
+              placeholder="Password"
+              className="border-none bg-[#11100f] text-[#8daeb8] outline-none"
+              id="password"
+            />
+            <img
+              className="w-6 cursor-pointer"
+              alt="show_icon"
+              src={isPasswordVisible ? Hide : Show}
+              onClick={togglePasswordVisibility}
+            />
+          </div>
+
           <div className="mx-5 pt-3 px-2 font-bold h-11">
             <p className="text-red-600 text-lg">{errorMessage}</p>
           </div>
