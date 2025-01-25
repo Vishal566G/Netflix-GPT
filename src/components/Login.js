@@ -10,7 +10,6 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-// import { ReactComponent as EyeShow } from "../utils/showEye.svg";
 import Show from "../utils/showEye.svg";
 import Hide from "../utils/hideEye.svg";
 
@@ -129,6 +128,10 @@ const Login = () => {
               onClick={togglePasswordVisibility}
             />
           </div>
+          <p className="mx-6 px-2 text-xs text-[#8daeb8]">
+            Password should be 8 characters long, 1 uppercase, 1 lowercase, 1
+            special symbol
+          </p>
 
           <div className="mx-5 pt-3 px-2 font-bold h-11">
             <p className="text-red-600 text-lg">{errorMessage}</p>

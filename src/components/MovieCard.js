@@ -28,7 +28,7 @@ const MovieCard = ({ posterPath, id }) => {
       <img
         src={IMG_CDN + posterPath}
         alt="Movie_image"
-        className="h-72 w-full object-cover rounded hover:scale-125 hover:ease-in-out duration-300"
+        className="h-72 w-full object-cover rounded hover:scale-90 hover:ease-in-out duration-300"
       />
     </div>
   );
